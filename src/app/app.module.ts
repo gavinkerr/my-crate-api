@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { RecordListComponent } from './record-list/record-list.component';
@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { reducers } from './store/app.reducers';
 import { EffectsModule } from '@ngrx/effects';
+import { RecordEditorComponent } from './record-list/record-editor/record-editor.component';
 
 
 @NgModule({
@@ -18,9 +19,12 @@ import { EffectsModule } from '@ngrx/effects';
     RecordListComponent,
     HeaderComponent,
     HomeComponent,
+    RecordEditorComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers),
   ],

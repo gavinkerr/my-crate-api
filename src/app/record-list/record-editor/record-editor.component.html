@@ -1,0 +1,12 @@
+<fieldset>  
+  <legend>Add to your crate mate...</legend>
+    <form [formGroup]="recordForm" (ngSubmit)="onSubmit()">
+<div class="form-group">
+  <label for="titleInput">Title</label
+  ><input type="text" id="titleInput" class="form-control" formControlName="title"/>
+  <button  [disabled]="!recordForm.valid">
+    <i class="fa fa-plus-square-o" aria-hidden="true"></i></button> 
+ 
+</div> </form>
+</fieldset>
+

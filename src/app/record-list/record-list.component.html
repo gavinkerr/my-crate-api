@@ -1,5 +1,11 @@
-<ul>
-  <li *ngFor="let recordEl of (recordState | async).records; let i = index">
-    {{i}} {{recordEl.title}}
-  </li>
-</ul>
+<app-record-editor></app-record-editor>
+<fieldset>
+  <legend>
+    Your records...
+  </legend>
+  <ul>
+      <li *ngFor="let recordEl of (recordState | async).records; let i = index">
+        {{i}} {{recordEl.title}}
+      </li>
+    </ul>
+</fieldset>
