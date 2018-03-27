@@ -6,6 +6,8 @@ export const SET_RECORDS = 'SET_RECORDS';
 export const ADD_RECORD = 'ADD_RECORD';
 export const UPDATE_RECORD = 'UPDATE_RECORD';
 export const DELETE_RECORD = 'DELETE_RECORD';
+export const SET_EDITED_RECORD = 'SET_EDITED_RECORD';
+export const RESET_EDITED_RECORD = 'RESET_EDITED_RECORD';
 // export const STORE_RECORDS = 'STORE_RECORDS';
 // export const FETCH_RECORDS = 'FETCH_RECORDS';
 
@@ -33,6 +35,18 @@ export class DeleteRecord implements Action {
   constructor(public payload: number) {}
 }
 
+export class SetEditedRecord implements Action {
+  readonly type = SET_EDITED_RECORD;
+
+  constructor(public payload: number) {}
+}
+
+export class ResetEditedRecord implements Action {
+  readonly type = RESET_EDITED_RECORD;
+
+  constructor() {}
+}
+
 // export class StoreRecords implements Action {
 //   readonly type = STORE_RECORDS;
 // }
@@ -44,6 +58,8 @@ export class DeleteRecord implements Action {
 export type RecordsActions = SetRecords |
   AddRecord |
   UpdateRecord |
-  DeleteRecord; // |
+  DeleteRecord |
+  SetEditedRecord |
+  ResetEditedRecord;
   // StoreRecords |
   // FetchRecords;

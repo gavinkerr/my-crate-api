@@ -7,17 +7,24 @@
  }
 
  export interface State {
+   recordToEdit: Record;
    records: Record[];
  }
 
+ function getEmptyRecord(): Record  {
+  return new Record('', '', '' , '', '');
+ }
+
  const initialState: State = {
+  recordToEdit: getEmptyRecord(),
   records: [
     new Record('Hello', 'Lionel Richie',
      null, 'Rnb', 'Pop', null)]
  };
 
 
- export function recordsReducer(state = initialState, action: RecordsActions.RecordsActions) {
+ export function recordsReducer(state = initialState,
+    action: RecordsActions.RecordsActions) {
    switch (action.type) {
      case (RecordsActions.SET_RECORDS):
        return {
@@ -47,6 +54,17 @@
        return {
          ...state,
          records: oldRecords
+       };
+      case (RecordsActions.SET_EDITED_RECORD):
+       const edited = {...state.records[action.payload]};
+       return {
+         ...state,
+         recordToEdit: edited
+       };
+       case (RecordsActions.RESET_EDITED_RECORD):
+       return {
+         ...state,
+         recordToEdit: getEmptyRecord()
        };
      default:
        return state;

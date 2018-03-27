@@ -11,7 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { reducers } from './store/app.reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { RecordEditorComponent } from './record-list/record-editor/record-editor.component';
-
+import {RecordEditItemResolver} from './resolvers/record-edit-item.resolver';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ import { RecordEditorComponent } from './record-list/record-editor/record-editor
     AppRoutingModule,
     StoreModule.forRoot(reducers),
   ],
-  providers: [],
+  providers: [RecordEditItemResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
