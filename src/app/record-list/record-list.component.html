@@ -8,7 +8,7 @@
   </legend>
   <ul>
       <li *ngFor="let recordEl of (recordState | async).records; let i = index">
-        {{i}} {{recordEl.title}}
+        <a  [routerLink]="[i]"> <i class="fas fa-edit"></i> </a>  {{i}} {{recordEl.title}}
       </li>
     </ul>
 </fieldset>
