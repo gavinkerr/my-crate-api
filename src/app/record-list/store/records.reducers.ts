@@ -82,7 +82,9 @@ function doAdd(state: State, update: Record): State {
        return state.editIndex > -1 ?
         {...doUpdate(state,
           state.editIndex,
-          action.payload)} :
+          action.payload),
+          recordToEdit: action.payload
+        } :
         {...doAdd(state,
           action.payload)}
         ;

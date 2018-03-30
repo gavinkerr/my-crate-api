@@ -14,9 +14,13 @@ import * as fromRecords from '../store/records.reducers';
 export class RecordEditorComponent implements OnInit {
   subscription: Subscription;
   recordForm: FormGroup;
-  constructor(              private store: Store<fromRecords.FeatureState>) { }
+  editMode: boolean;
+  constructor(
+    private store: Store<fromRecords.FeatureState>
+    ) { }
 
   createForm() {
+    this.editMode = false;
     this.recordForm = new FormGroup({
       'title': new FormControl(null, Validators.required)});
   }
@@ -24,12 +28,12 @@ export class RecordEditorComponent implements OnInit {
   ngOnInit() {
     this.createForm();
     this.subscription = this.store.select('records')
-      .select(x => x.recordToEdit)
       .subscribe(
         data => {
           if (data) {
+            this.editMode = data.editIndex > -1;
             this.recordForm.setValue({
-              title: data.title,
+              title: data.recordToEdit.title,
             });
           }
         }
