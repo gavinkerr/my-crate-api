@@ -38,7 +38,7 @@ export class RecordEditorComponent implements OnInit {
 
   onSubmit() {
 
-    this.store.dispatch(new RecordActions.AddRecord(this.recordForm.value));
+    this.store.dispatch(new RecordActions.CommitEditedRecord(this.recordForm.value));
   }
 
 }
