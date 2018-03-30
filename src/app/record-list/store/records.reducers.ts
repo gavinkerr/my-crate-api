@@ -1,3 +1,4 @@
+ import {Guid} from '../../tools/guid.class';
  import { Record } from '../../models/record.model';
  import * as RecordsActions from './records.actions';
  import * as fromApp from '../../store/app.reducers';
@@ -12,13 +13,13 @@
  }
 
  function getEmptyRecord(): Record  {
-  return new Record('', '', '' , '', '');
+  return new Record(Guid.newGuid(), '', '', '' , '', '');
  }
 
  const initialState: State = {
   recordToEdit: getEmptyRecord(),
   records: [
-    new Record('Hello', 'Lionel Richie',
+    new Record(Guid.newGuid(), 'Hello', 'Lionel Richie',
      null, 'Rnb', 'Pop', null)]
  };
 

@@ -1,5 +1,6 @@
 export class Record {
 constructor(
+public uuid: string,
 public title: string ,
 public artist:  string ,
 public label: string ,
