@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -16,6 +17,8 @@ export class RecordEditorComponent implements OnInit {
   recordForm: FormGroup;
   editMode: boolean;
   constructor(
+    private router: Router,
+              private route: ActivatedRoute,
     private store: Store<fromRecords.FeatureState>
     ) { }
 
@@ -43,6 +46,9 @@ export class RecordEditorComponent implements OnInit {
   onSubmit() {
 
     this.store.dispatch(new RecordActions.CommitEditedRecord(this.recordForm.value));
+    if (this.editMode) {
+      this.router.navigate(['../new'], {relativeTo: this.route});
+    }
   }
 
 }
