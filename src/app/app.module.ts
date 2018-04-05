@@ -12,6 +12,7 @@ import { reducers } from './store/app.reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { RecordEditorComponent } from './record-list/record-editor/record-editor.component';
 import {RecordEditItemResolver} from './resolvers/record-edit-item.resolver';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {RecordEditItemResolver} from './resolvers/record-edit-item.resolver';
     ReactiveFormsModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers),
+    NgbModule.forRoot()
   ],
   providers: [RecordEditItemResolver],
   bootstrap: [AppComponent]
