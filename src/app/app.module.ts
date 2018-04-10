@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { RecordListComponent } from './record-list/record-list.component';
@@ -14,6 +15,9 @@ import { RecordEditorComponent } from './record-list/record-editor/record-editor
 import {RecordEditItemResolver} from './resolvers/record-edit-item.resolver';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
+import { AuthEffects } from './auth/store/auth.effects';
+import { RecordEffects } from './record-list/store/records.effects';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,10 +28,12 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([AuthEffects, RecordEffects]),
     NgbModule.forRoot()
   ],
   providers: [RecordEditItemResolver],
