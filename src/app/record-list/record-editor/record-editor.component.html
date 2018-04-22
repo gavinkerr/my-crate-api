@@ -2,8 +2,9 @@
   <legend>Add to your crate mate...</legend>
     <form [formGroup]="recordForm" (ngSubmit)="onSubmit()">
 <div class="form-group">
-  <label for="titleInput">Title</label
-  ><input type="text" id="titleInput" class="form-control" formControlName="title"/>
+  <label for="titleInput">Title</label>
+  <input type="text" id="titleInput" class="form-control" formControlName="title"/>
+  <input type="file" appAppFileInput accept='image/*'/>
   <button  [disabled]="!recordForm.valid">
     <i class="fa" 
     [ngClass]="{'fa-plus-square-o':!editMode,'fa-check-circle':editMode}" 

@@ -17,6 +17,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AuthEffects } from './auth/store/auth.effects';
 import { RecordEffects } from './record-list/store/records.effects';
+import { AppFileInputDirective } from './directives/app-file-input.directive';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { RecordEffects } from './record-list/store/records.effects';
     HeaderComponent,
     HomeComponent,
     RecordEditorComponent,
+    AppFileInputDirective,
   ],
   imports: [
     BrowserModule,
