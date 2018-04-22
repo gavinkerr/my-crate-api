@@ -78,6 +78,11 @@ function doAdd(state: State, update: Record): State {
          recordToEdit: edited,
          editIndex: action.payload,
        };
+       case (RecordsActions.UPDATE_EDITED_RECORD):
+       return {
+         ...state,
+         recordToEdit: {...action.payload},
+       };
        case (RecordsActions.COMMIT_EDITED_RECORD):
        return state.editIndex > -1 ?
         {...doUpdate(state,

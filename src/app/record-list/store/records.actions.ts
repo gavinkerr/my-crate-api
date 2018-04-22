@@ -7,6 +7,7 @@ export const ADD_RECORD = 'ADD_RECORD';
 export const UPDATE_RECORD = 'UPDATE_RECORD';
 export const DELETE_RECORD = 'DELETE_RECORD';
 export const SET_EDITED_RECORD = 'SET_EDITED_RECORD';
+export const UPDATE_EDITED_RECORD = 'UPDATE_EDITED_RECORD';
 export const RESET_EDITED_RECORD = 'RESET_EDITED_RECORD';
 export const COMMIT_EDITED_RECORD = 'COMMIT_EDITED_RECORD';
 export const STORE_RECORDS = 'STORE_RECORDS';
@@ -42,6 +43,12 @@ export class SetEditedRecord implements Action {
   constructor(public payload: number) {}
 }
 
+export class UpdateEditedRecord implements Action {
+  readonly type = UPDATE_EDITED_RECORD;
+
+  constructor(public payload: Record) {}
+}
+
 export class ResetEditedRecord implements Action {
   readonly type = RESET_EDITED_RECORD;
 
@@ -67,6 +74,7 @@ export type RecordsActions = SetRecords |
   UpdateRecord |
   DeleteRecord |
   SetEditedRecord |
+  UpdateEditedRecord |
   ResetEditedRecord |
   CommitEditedRecord|
   StoreRecords |

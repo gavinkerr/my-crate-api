@@ -18,6 +18,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AuthEffects } from './auth/store/auth.effects';
 import { RecordEffects } from './record-list/store/records.effects';
 import { AppFileInputDirective } from './directives/app-file-input.directive';
+import { ImagingService } from './tools/imaging.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { AppFileInputDirective } from './directives/app-file-input.directive';
     EffectsModule.forRoot([AuthEffects, RecordEffects]),
     NgbModule.forRoot()
   ],
-  providers: [RecordEditItemResolver],
+  providers: [RecordEditItemResolver, ImagingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
